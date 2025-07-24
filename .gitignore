@@ -1,10 +1,11 @@
 *.pyc
 *~
 node_modules
-dist/
 docs/api/
 coverage/
 .DS_Store
 .vscode
 .babel-cache
 .idea/
+dist/cast-boot.js
+dist/wrapper.js
