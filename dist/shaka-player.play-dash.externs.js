@@ -61,7 +61,6 @@ shaka.util.IReleasable = class {
  * @implements {shaka.util.IReleasable}
  */
 shaka.util.EventManager = class {
-  /** */
   constructor() {}
   /**
    * Detaches all event listeners.
@@ -562,7 +561,6 @@ shaka.media.ClosedCaptionParser = class {
 /**
  */
 shaka.text.CueRegion = class {
-  /** */
   constructor() {}
 };
 /**
@@ -1351,7 +1349,6 @@ shaka.util.StreamUtils = class {
  * @implements {shaka.util.IReleasable}
  */
 shaka.abr.SimpleAbrManager = class {
-  /** */
   constructor() {}
   /**
    * @override
@@ -1539,7 +1536,6 @@ shaka.util.FakeEvent = class {
  * @implements {shaka.util.IReleasable}
  */
 shaka.util.FakeEventTarget = class {
-  /** */
   constructor() {}
   /**
    * Add an event listener to this object.
@@ -1940,7 +1936,6 @@ shaka.util.DataViewReader.Endianness = {
 /**
  */
 shaka.util.Mp4Parser = class {
-  /** */
   constructor() {}
   /**
    * Declare a box type as a Box.
@@ -2481,7 +2476,6 @@ shaka.util.ExpGolomb = class {
  * @see https://en.wikipedia.org/wiki/MPEG_transport_stream
  */
 shaka.util.TsParser = class {
-  /** */
   constructor() {}
   /**
    * Clear previous data
@@ -2977,12 +2971,11 @@ shaka.media.SegmentIterator = class {
 /**
  * A meta-SegmentIndex composed of multiple other SegmentIndexes.
  * Used in constructing multi-Period Streams for DASH.
- * @extends shaka.media.SegmentIndex
+ * @extends {shaka.media.SegmentIndex}
  * @implements {shaka.util.IReleasable}
  * @implements {Iterable<?shaka.media.SegmentReference>}
  */
 shaka.media.MetaSegmentIndex = class extends shaka.media.SegmentIndex {
-  /** */
   constructor() {}
   /**
    * @override
@@ -4080,7 +4073,7 @@ shaka.Player = class extends shaka.util.FakeEventTarget {
   getPlayheadTimeAsDate() {}
   /**
    * Get the presentation start time as a date.
-   * @return {Date}
+   * @return {(Date|null)}
    */
   getPresentationStartTimeAsDate() {}
   /**
@@ -5175,7 +5168,6 @@ shaka.ads.ServerSideAd = class {
  * @implements {shaka.util.IReleasable}
  */
 shaka.ads.AdManager = class extends shaka.util.FakeEventTarget {
-  /** */
   constructor() {}
   /**
    * @override
@@ -5542,7 +5534,6 @@ shaka.ads.AdManager.AD_CONTENT_ATTACH_REQUESTED;
  * @final
  */
 shaka.util.PeriodCombiner = class {
-  /** */
   constructor() {}
   /**
    * @return {!Array<shaka.extern.Variant>}
@@ -5938,7 +5929,6 @@ shaka.text.TtmlTextParser = class {
  * @implements {shaka.extern.TextParser}
  */
 shaka.text.Mp4TtmlParser = class {
-  /** */
   constructor() {}
   /**
    * @override
@@ -5984,7 +5974,6 @@ shaka.text.VttTextParser = class {
  * @implements {shaka.extern.TextParser}
  */
 shaka.text.Mp4VttParser = class {
-  /** */
   constructor() {}
   /**
    * @override
@@ -6028,7 +6017,6 @@ shaka.text.SbvTextParser = class {
  * @implements {shaka.extern.TextParser}
  */
 shaka.text.SrtTextParser = class {
-  /** */
   constructor() {}
   /**
    * @override
