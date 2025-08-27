@@ -5984,6 +5984,7 @@ shaka.text.LrcTextParser = class {
  * @implements {shaka.extern.TextParser}
  */
 shaka.text.TtmlTextParser = class {
+  constructor() {}
   /**
    * @override
    */
