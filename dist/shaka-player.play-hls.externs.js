@@ -1893,9 +1893,14 @@ shaka.util.DataViewReader = class {
   /**
    * Reads the specified number of raw bytes.
    * @param {number} bytes The number of bytes to read.
+   * @param {boolean} clone True to clone the data into a new buffer, false to
+   *   create a view on the existing buffer.  Creating a view on the existing
+   *   buffer will keep the entire buffer in memory so long as the view is
+   *   reachable.  Use false for temporary values, and true for values that
+   *   need to outlive the underlying buffer.
    * @return {!Uint8Array}
    */
-  readBytes(bytes) {}
+  readBytes(bytes, clone) {}
   /**
    * Skips the specified number of bytes.
    * @param {number} bytes The number of bytes to skip.
@@ -2005,9 +2010,14 @@ shaka.util.Mp4Parser = class {
    * Create a callback that tells the Mp4 parser to treat the body of a box as a
    * binary blob and to parse the body's contents using the provided callback.
    * @param {function(!Uint8Array)} callback
+   * @param {boolean} clone True to clone the data into a new buffer, false to
+   *   create a view on the existing buffer.  Creating a view on the existing
+   *   buffer will keep the entire buffer in memory so long as the view is
+   *   reachable.  Use false for temporary values, and true for values that
+   *   need to outlive the underlying buffer.
    * @return {!shaka.util.Mp4Parser.CallbackType}
    */
-  static allData(callback) {}
+  static allData(callback, clone) {}
   /**
    * Convert an integer type from a box into an ascii string name.
    * Useful for debugging.

@@ -3169,8 +3169,9 @@ declare namespace shaka.util {
     /**
      * Reads the specified number of raw bytes.
      * @param bytes The number of bytes to read.
+     * @param clone True to clone the data into a new buffer, false to create a view on the existing buffer.  Creating a view on the existing buffer will keep the entire buffer in memory so long as the view is reachable.  Use false for temporary values, and true for values that need to outlive the underlying buffer.
      */
-    readBytes (bytes : number ) : Uint8Array ;
+    readBytes (bytes : number , clone : boolean ) : Uint8Array ;
     /**
      * Reads a signed 32 bit integer, and advances the reader.
      */
@@ -3740,8 +3741,9 @@ declare namespace shaka.util {
     /**
      * Create a callback that tells the Mp4 parser to treat the body of a box as a
      * binary blob and to parse the body's contents using the provided callback.
+     * @param clone True to clone the data into a new buffer, false to create a view on the existing buffer.  Creating a view on the existing buffer will keep the entire buffer in memory so long as the view is reachable.  Use false for temporary values, and true for values that need to outlive the underlying buffer.
      */
-    static allData (callback : (a : Uint8Array ) => any ) : shaka.util.Mp4Parser.CallbackType ;
+    static allData (callback : (a : Uint8Array ) => any , clone : boolean ) : shaka.util.Mp4Parser.CallbackType ;
     /**
      * A callback that tells the Mp4 parser to treat the body of a box as a audio
      * sample entry.  A audio sample entry has some fixed-sized fields
