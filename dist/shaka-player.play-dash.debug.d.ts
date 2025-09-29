@@ -3257,7 +3257,7 @@ declare namespace shaka.util.Error {
     BAD_ENCODING = 2004.0 ,
     BAD_HTTP_STATUS = 1001.0 ,
     BUFFER_READ_OUT_OF_BOUNDS = 3000.0 ,
-    CANNOT_ADD_EXTERNAL_CHAPTERS_TO_LIVE_STREAM = 4054.0 ,
+    CANNOT_ADD_EXTERNAL_CHAPTERS_TO_LIVE_STREAM = 4055.0 ,
     CANNOT_ADD_EXTERNAL_TEXT_TO_LIVE_STREAM = 4033.0 ,
     CANNOT_ADD_EXTERNAL_TEXT_TO_SRC_EQUALS = 2012.0 ,
     CANNOT_ADD_EXTERNAL_THUMBNAILS_TO_LIVE_STREAM = 4045.0 ,
@@ -4161,6 +4161,10 @@ declare namespace shaka.extern {
      * Gets the current AdaptationSetCriteria configuration.
      */
     getConfiguration ( ) : shaka.extern.AdaptationSetCriteria.Configuration | null ;
+    /**
+     * Return the result of last create call.
+     */
+    getLastAdaptationSet ( ) : shaka.media.AdaptationSet | null ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/externs/shaka/adaptation_set_criteria.js
