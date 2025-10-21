@@ -101,7 +101,7 @@ declare namespace shaka {
      * Leaves the player in a state where it cannot play media, until it has been
      * attached to something else.
      */
-    detachAndSavePreload (keepAdManager ? : boolean , saveLivePosition ? : boolean ) : Promise < shaka.media.PreloadManager | null > ;
+    detachAndSavePreload (keepAdManager ? : boolean , savePosition ? : boolean ) : Promise < shaka.media.PreloadManager | null > ;
     /**
      * Get the drm info used to initialize EME. If EME is not being used, this
      * will return <code>null</code>. If the player is idle or has not initialized
@@ -519,7 +519,7 @@ declare namespace shaka {
      * Allows for the asset to be re-loaded by this player faster, in the future.
      * When in src= mode, this unloads but does not make a PreloadManager.
      */
-    unloadAndSavePreload (initializeMediaSource ? : boolean , keepAdManager ? : boolean ) : Promise < shaka.media.PreloadManager | null > ;
+    unloadAndSavePreload (initializeMediaSource ? : boolean , keepAdManager ? : boolean , savePosition ? : boolean ) : Promise < shaka.media.PreloadManager | null > ;
     /**
      * Provides a way to update the stream start position during the media loading
      * process. Can for example be called from the <code>manifestparsed</code>
@@ -5073,7 +5073,7 @@ declare namespace shaka.extern {
    * An object that's responsible for all the queue-related logic
    * in the player.
    */
-  interface IQueueManager extends shaka.util.IDestroyable extends EventTarget {
+  interface IQueueManager extends shaka.util.IDestroyable, EventTarget {
     /**
      * Called by the Player to provide an updated configuration any time it
      * changes.
