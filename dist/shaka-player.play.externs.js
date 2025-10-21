@@ -3516,9 +3516,10 @@ shaka.Player = class extends shaka.util.FakeEventTarget {
    * When in src= mode, this unloads but does not make a PreloadManager.
    * @param {boolean=} initializeMediaSource
    * @param {boolean=} keepAdManager
+   * @param {boolean=} savePosition
    * @return {!Promise<?shaka.media.PreloadManager>}
    */
-  unloadAndSavePreload(initializeMediaSource, keepAdManager) {}
+  unloadAndSavePreload(initializeMediaSource, keepAdManager, savePosition) {}
   /**
    * Detach the player from the current media element, if any, and returns a
    * PreloadManager that contains the loaded manifest of that asset, if any.
@@ -3527,10 +3528,10 @@ shaka.Player = class extends shaka.util.FakeEventTarget {
    * Leaves the player in a state where it cannot play media, until it has been
    * attached to something else.
    * @param {boolean=} keepAdManager
-   * @param {boolean=} saveLivePosition
+   * @param {boolean=} savePosition
    * @return {!Promise<?shaka.media.PreloadManager>}
    */
-  detachAndSavePreload(keepAdManager, saveLivePosition) {}
+  detachAndSavePreload(keepAdManager, savePosition) {}
   /**
    * Starts to preload a given asset, and returns a PreloadManager object that
    * represents that preloading process.
