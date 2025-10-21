@@ -7,6 +7,3 @@ python3 build/build.py --name play-dash +@complete -@cast -@cea -@devices -@mss 
 python3 build/build.py --name play +@complete -@cast -@cea -@devices -@mss -@offline -@polyfillForUI -@ui --force --mode debug
 python3 build/build.py --name play-hls +@complete -@cast -@cea -@devices -@mss -@offline -@polyfillForUI -@ui -@dash --force --mode debug
 python3 build/build.py --name play-dash +@complete -@cast -@cea -@devices -@mss -@offline -@polyfillForUI -@ui -@hls -@fairplay --force --mode debug
-
-echo "export default shaka;" >> dist/shaka-player.play.d.ts
-echo "export default shaka;" >> dist/shaka-player.play.debug.d.ts
