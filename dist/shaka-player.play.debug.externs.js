@@ -515,6 +515,38 @@ shaka.lcevc.Dec = class {
   release() {}
 };
 /**
+ * @summary An interface to register manifest parsers.
+ */
+shaka.media.ManifestParser = class {
+  /**
+   * Registers a manifest parser by file extension.
+   * @param {string} extension The file extension of the manifest.
+   * @param {shaka.extern.ManifestParser.Factory} parserFactory The factory
+   *   used to create parser instances.
+   */
+  static registerParserByExtension(extension, parserFactory) {}
+  /**
+   * Registers a manifest parser by MIME type.
+   * @param {string} mimeType The MIME type of the manifest.
+   * @param {shaka.extern.ManifestParser.Factory} parserFactory The factory
+   *   used to create parser instances.
+   */
+  static registerParserByMime(mimeType, parserFactory) {}
+  /**
+   * Unregisters a manifest parser by MIME type.
+   * @param {string} mimeType The MIME type of the manifest.
+   */
+  static unregisterParserByMime(mimeType) {}
+};
+/**
+ * @enum {string}
+ */
+shaka.media.ManifestParser.AccessibilityPurpose = {
+  VISUALLY_IMPAIRED: 'visually impaired',
+  HARD_OF_HEARING: 'hard of hearing',
+  SPOKEN_SUBTITLES: 'spoken subtitles'
+};
+/**
  * The IClosedCaptionParser defines the interface to provide all operations for
  * parsing the closed captions embedded in Dash videos streams.
  * TODO: Remove this interface and move method definitions
@@ -2039,38 +2071,6 @@ shaka.util.Mp4Parser = class {
  * @typedef {function(!shaka.extern.ParsedBox)}
  */
 shaka.util.Mp4Parser.CallbackType;
-/**
- * @summary An interface to register manifest parsers.
- */
-shaka.media.ManifestParser = class {
-  /**
-   * Registers a manifest parser by file extension.
-   * @param {string} extension The file extension of the manifest.
-   * @param {shaka.extern.ManifestParser.Factory} parserFactory The factory
-   *   used to create parser instances.
-   */
-  static registerParserByExtension(extension, parserFactory) {}
-  /**
-   * Registers a manifest parser by MIME type.
-   * @param {string} mimeType The MIME type of the manifest.
-   * @param {shaka.extern.ManifestParser.Factory} parserFactory The factory
-   *   used to create parser instances.
-   */
-  static registerParserByMime(mimeType, parserFactory) {}
-  /**
-   * Unregisters a manifest parser by MIME type.
-   * @param {string} mimeType The MIME type of the manifest.
-   */
-  static unregisterParserByMime(mimeType) {}
-};
-/**
- * @enum {string}
- */
-shaka.media.ManifestParser.AccessibilityPurpose = {
-  VISUALLY_IMPAIRED: 'visually impaired',
-  HARD_OF_HEARING: 'hard of hearing',
-  SPOKEN_SUBTITLES: 'spoken subtitles'
-};
 /**
  * @enum {string}
  */

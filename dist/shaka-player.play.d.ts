@@ -5297,3 +5297,5 @@ declare namespace shaka.extern {
 declare namespace shaka.extern {
   type TransmuxerPlugin = ( ) => shaka.extern.Transmuxer ;
 }
+
+export default shaka;
