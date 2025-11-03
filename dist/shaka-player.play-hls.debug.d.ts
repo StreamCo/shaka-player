@@ -2814,10 +2814,6 @@ declare namespace shaka.text {
     parseMedia (data : any , time : any , uri : any ) : any ;
     setManifestType (manifestType : any ) : any ;
     setSequenceMode (sequenceMode : any ) : any ;
-    /**
-     * Convert a SRT format to WebVTT
-     */
-    static srt2webvtt (data : string ) : string ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play-hls.debug.externs.js

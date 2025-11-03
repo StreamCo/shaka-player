@@ -5966,12 +5966,6 @@ shaka.text.SrtTextParser = class {
    * @override
    */
   parseMedia(data, time, uri) {}
-  /**
-   * Convert a SRT format to WebVTT
-   * @param {string} data
-   * @return {string}
-   */
-  static srt2webvtt(data) {}
 };
 /**
  * Documentation: http://moodub.free.fr/video/ass-specs.doc
