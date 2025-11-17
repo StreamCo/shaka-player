@@ -3622,6 +3622,7 @@ shaka.Player = class extends shaka.util.FakeEventTarget {
   /**
    * Get the current load mode.
    * @return {shaka.Player.LoadMode}
+   * @noinline
    */
   getLoadMode() {}
   /**
@@ -3634,6 +3635,7 @@ shaka.Player = class extends shaka.util.FakeEventTarget {
    * content. If the player has not loaded content, this will return
    * <code>null</code>.
    * @return {HTMLMediaElement}
+   * @noinline
    */
   getMediaElement() {}
   /**
@@ -3706,6 +3708,7 @@ shaka.Player = class extends shaka.util.FakeEventTarget {
   /**
    * Indicates if the player has fully loaded the stream.
    * @return {boolean}
+   * @noinline
    */
   isFullyLoaded() {}
   /**
