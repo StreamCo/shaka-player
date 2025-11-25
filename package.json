@@ -1,7 +1,7 @@
 {
   "name": "shaka-player",
   "description": "DASH/EME video player library",
-  "version": "4.16.9",
+  "version": "4.16.10",
   "homepage": "https://github.com/shaka-project/shaka-player",
   "author": "Google",
   "maintainers": [
@@ -102,6 +102,7 @@
     ]
   },
   "main": "dist/shaka-player.compiled.js",
+  "types": "dist/shaka-player.compiled.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/shaka-project/shaka-player.git"
