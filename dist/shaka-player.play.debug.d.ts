@@ -48,17 +48,17 @@ declare namespace shaka {
      * Calling <code>attachCanvas</code> will tell the player to set canvas
      * element for LCEVC decoding.
      */
-    attachCanvas (canvas : HTMLCanvasElement | null ) : any ;
+    attachCanvas (canvas : HTMLCanvasElement | null ) : void ;
     /**
      * Cancel trick-play. If the player has not loaded content or is still loading
      * content this will be a no-op.
      */
-    cancelTrickPlay ( ) : any ;
+    cancelTrickPlay ( ) : void ;
     /**
      * Changes low latency configuration settings on the Player.
      * @param config This object should follow the {@link shaka.extern.PlayerConfiguration} object.  Not all fields need to be set; unset fields retain their old values.
      */
-    configurationForLowLatency (config : object ) : any ;
+    configurationForLowLatency (config : object ) : void ;
     /**
      * Changes configuration settings on the Player.  This checks the names of
      * keys and the types of values to avoid coding errors.  If there are errors,
@@ -86,7 +86,7 @@ declare namespace shaka {
     /**
      * Calls |destroy| on each PreloadManager object this player has created.
      */
-    destroyAllPreloads ( ) : any ;
+    destroyAllPreloads ( ) : void ;
     /**
      * Detach the player from the current media element. Leaves the player in a
      * state where it cannot play media, until it has been attached to something
@@ -311,7 +311,7 @@ declare namespace shaka {
     /**
      * Go to live in a live stream.
      */
-    goToLive ( ) : any ;
+    goToLive ( ) : void ;
     /**
      * Check if the manifest contains only audio-only content. If the player has
      * not loaded content, this will return <code>false</code>.
@@ -393,11 +393,11 @@ declare namespace shaka {
     /**
      * Releases all of the mutexes of the player. Meant for use by the tests.
      */
-    releaseAllMutexes ( ) : any ;
+    releaseAllMutexes ( ) : void ;
     /**
      * Reset configuration to default.
      */
-    resetConfiguration ( ) : any ;
+    resetConfiguration ( ) : void ;
     /**
      * Retry streaming after a streaming failure has occurred. When the player has
      * not loaded content or is loading content, this will be a no-op and will
@@ -424,13 +424,13 @@ declare namespace shaka {
      * This API is deprecated and will be removed in version 5.0, please migrate
      * to using `getAudioTracks` and `selectAudioTrack`.
      */
-    selectAudioLanguage (language : string , role ? : string , channelsCount ? : number , safeMargin ? : number , codec ? : string , spatialAudio ? : boolean , label ? : string ) : any ;
+    selectAudioLanguage (language : string , role ? : string , channelsCount ? : number , safeMargin ? : number , codec ? : string , spatialAudio ? : boolean , label ? : string ) : void ;
     /**
      * Select an audio track compatible with the current video track.
      * If the player has not loaded any content, this will be a no-op.
      * @param safeMargin Optional amount of buffer (in seconds) to retain when clearing the buffer. Useful for switching quickly without causing a buffering event. Defaults to 0 if not provided. Can cause hiccups on some browsers if chosen too small, e.g. The amount of two segments is a fair minimum to consider as safeMargin value.
      */
-    selectAudioTrack (audioTrack : shaka.extern.AudioTrack , safeMargin ? : number ) : any ;
+    selectAudioTrack (audioTrack : shaka.extern.AudioTrack , safeMargin ? : number ) : void ;
     /**
      * Sets the current text language and current text role to the selected
      * language and role, and chooses a new variant if need be. If the player has
@@ -439,7 +439,7 @@ declare namespace shaka {
      * This API is deprecated and will be removed in version 5.0, please migrate
      * to using `getTextTracks` and `selectTextTrack`.
      */
-    selectTextLanguage (language : string , role ? : string , forced ? : boolean ) : any ;
+    selectTextLanguage (language : string , role ? : string , forced ? : boolean ) : void ;
     /**
      * Select a specific text track. <code>track</code> should come from a call to
      * <code>getTextTracks</code>. If the track is not found, this will be a
@@ -448,7 +448,7 @@ declare namespace shaka {
      * Note that <code>AdaptationEvents</code> are not fired for manual track
      * selections.
      */
-    selectTextTrack (track : shaka.extern.TextTrack ) : any ;
+    selectTextTrack (track : shaka.extern.TextTrack ) : void ;
     /**
      * Select a specific variant track to play.  <code>track</code> should come
      * from a call to <code>getVariantTracks</code>. If <code>track</code> cannot
@@ -466,7 +466,7 @@ declare namespace shaka {
      * selections.
      * @param safeMargin Optional amount of buffer (in seconds) to retain when clearing the buffer. Useful for switching variant quickly without causing a buffering event. Defaults to 0 if not provided. Ignored if clearBuffer is false. Can cause hiccups on some browsers if chosen too small, e.g. The amount of two segments is a fair minimum to consider as safeMargin value.
      */
-    selectVariantTrack (track : shaka.extern.Track , clearBuffer ? : boolean , safeMargin ? : number ) : any ;
+    selectVariantTrack (track : shaka.extern.Track , clearBuffer ? : boolean , safeMargin ? : number ) : void ;
     /**
      * Select variant tracks that have a given label. This assumes the
      * label uniquely identifies an audio stream, so all the variants
@@ -476,26 +476,26 @@ declare namespace shaka {
      * @param clearBuffer Optional clear buffer or not when switch to new variant Defaults to true if not provided
      * @param safeMargin Optional amount of buffer (in seconds) to retain when clearing the buffer. Defaults to 0 if not provided. Ignored if clearBuffer is false.
      */
-    selectVariantsByLabel (label : string , clearBuffer ? : boolean , safeMargin ? : number ) : any ;
+    selectVariantsByLabel (label : string , clearBuffer ? : boolean , safeMargin ? : number ) : void ;
     /**
      * Select a video track compatible with the current audio track.
      * If the player has not loaded any content, this will be a no-op.
      * @param safeMargin Optional amount of buffer (in seconds) to retain when clearing the buffer. Useful for switching quickly without causing a buffering event. Defaults to 0 if not provided. Can cause hiccups on some browsers if chosen too small, e.g. The amount of two segments is a fair minimum to consider as safeMargin value.
      */
-    selectVideoTrack (videoTrack : shaka.extern.VideoTrack , clearBuffer ? : boolean , safeMargin ? : number ) : any ;
+    selectVideoTrack (videoTrack : shaka.extern.VideoTrack , clearBuffer ? : boolean , safeMargin ? : number ) : void ;
     /**
      * Set the maximum resolution that the platform's hardware can handle.
      */
-    setMaxHardwareResolution (width : number , height : number ) : any ;
+    setMaxHardwareResolution (width : number , height : number ) : void ;
     /**
      * Enable or disable the text displayer.  If the player is in an unloaded
      * state, the request will be applied next time content is loaded.
      */
-    setTextTrackVisibility (isVisible : boolean ) : any ;
+    setTextTrackVisibility (isVisible : boolean ) : void ;
     /**
      * Set the videoContainer to construct UITextDisplayer.
      */
-    setVideoContainer (videoContainer : HTMLElement | null ) : any ;
+    setVideoContainer (videoContainer : HTMLElement | null ) : void ;
     /**
      * Enable trick play to skip through content without playing by repeatedly
      * seeking. For example, a rate of 2.5 would result in 2.5 seconds of content
@@ -508,7 +508,7 @@ declare namespace shaka {
      * Trick play will be canceled automatically if the playhead hits the
      * beginning or end of the seekable range for the content.
      */
-    trickPlay (rate : number , useTrickPlayTrack ? : boolean ) : any ;
+    trickPlay (rate : number , useTrickPlayTrack ? : boolean ) : void ;
     /**
      * Unloads the currently playing stream, if any.
      */
@@ -526,12 +526,12 @@ declare namespace shaka {
      * event handler to update the start position based on information in the
      * manifest.
      */
-    updateStartTime (startTime : number | Date | null ) : any ;
+    updateStartTime (startTime : number | Date | null ) : void ;
     /**
      * Enable or disable trick play track if the currently loaded content
      * has it.
      */
-    useTrickPlayTrackIfAvailable (on : boolean ) : any ;
+    useTrickPlayTrackIfAvailable (on : boolean ) : void ;
     /**
      * Return whether the browser provides basic support.  If this returns false,
      * Shaka Player cannot be used at all.  In this case, do not construct a
@@ -551,17 +551,17 @@ declare namespace shaka {
      * <code>support()</code>.  The callback will return the value that will be
      * stored in the return value from <code>support()</code>.
      */
-    static registerSupportPlugin (name : string , callback : ( ) => any ) : any ;
+    static registerSupportPlugin (name : string , callback : ( ) => any ) : void ;
     /**
      * Set a factory to create an ad manager during player construction time.
      * This method needs to be called before instantiating the Player class.
      */
-    static setAdManagerFactory (factory : shaka.extern.IAdManager.Factory ) : any ;
+    static setAdManagerFactory (factory : shaka.extern.IAdManager.Factory ) : void ;
     /**
      * Set a factory to create an queue manager during player construction time.
      * This method needs to be called before instantiating the Player class.
      */
-    static setQueueManagerFactory (factory : shaka.extern.IQueueManager.Factory ) : any ;
+    static setQueueManagerFactory (factory : shaka.extern.IQueueManager.Factory ) : void ;
     static version : string ;
   }
 }
@@ -605,7 +605,7 @@ declare namespace shaka.abr {
     getBandwidthEstimate ( ) : any ;
     init (switchCallback : any ) : any ;
     playbackRateChanged (rate : any ) : any ;
-    release ( ) : any ;
+    release ( ) : void ;
     segmentDownloaded (deltaTimeMs : number , numBytes : number , allowSwitch : boolean , request ? : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : any ;
     setCmsdManager (cmsdManager : any ) : any ;
     setMediaElement (mediaElement : any ) : any ;
@@ -640,7 +640,7 @@ declare namespace shaka.ads {
     onHLSInterstitialMetadata (basePlayer : any , baseVideo : any , interstitial : any ) : any ;
     onHlsTimedMetadata (metadata : any , timestamp : any ) : any ;
     onManifestUpdated (isLive : any ) : any ;
-    release ( ) : any ;
+    release ( ) : void ;
     replaceServerSideAdTagParameters (adTagParameters : any ) : any ;
     requestClientSideAds (imaRequest : any ) : any ;
     requestMediaTailorStream (url : string , adsParams : object | null , backupUrl ? : string ) : Promise < string > ;
@@ -1248,7 +1248,7 @@ declare namespace shaka {
      * @param key which is used for retrieving a dependency
      * @param dep a dependency
      */
-    static add (key : shaka.dependencies.Allowed , dep : any ) : any ;
+    static add (key : shaka.dependencies.Allowed , dep : any ) : void ;
     /**
      * Check if we have a dependency for the key.
      * @param key key
@@ -1270,11 +1270,11 @@ declare namespace shaka.drm {
     /**
      * Common FairPlay response transform for some DRMs providers.
      */
-    static commonFairPlayResponse (type : shaka.net.NetworkingEngine.RequestType , response : shaka.extern.Response , context ? : shaka.extern.RequestContext ) : any ;
+    static commonFairPlayResponse (type : shaka.net.NetworkingEngine.RequestType , response : shaka.extern.Response , context ? : shaka.extern.RequestContext ) : void ;
     /**
      * Conax FairPlay request.
      */
-    static conaxFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : any ;
+    static conaxFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : void ;
     /**
      * Conax initDataTransform configuration.
      */
@@ -1287,7 +1287,7 @@ declare namespace shaka.drm {
     /**
      * ExpressPlay FairPlay request.
      */
-    static expressplayFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : any ;
+    static expressplayFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : void ;
     /**
      * ExpressPlay initDataTransform configuration.
      */
@@ -1295,7 +1295,7 @@ declare namespace shaka.drm {
     /**
      * EZDRM FairPlay request.
      */
-    static ezdrmFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : any ;
+    static ezdrmFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : void ;
     /**
      * EZDRM initDataTransform configuration.
      */
@@ -1320,7 +1320,7 @@ declare namespace shaka.drm {
     /**
      * Mux FairPlay request.
      */
-    static muxFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : any ;
+    static muxFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : void ;
     /**
      * Mux initDataTransform configuration.
      */
@@ -1328,7 +1328,7 @@ declare namespace shaka.drm {
     /**
      * Verimatrix FairPlay request.
      */
-    static verimatrixFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : any ;
+    static verimatrixFairPlayRequest (type : shaka.net.NetworkingEngine.RequestType , request : shaka.extern.Request , context ? : shaka.extern.RequestContext ) : void ;
     /**
      * Verimatrix initDataTransform configuration.
      */
@@ -1360,7 +1360,7 @@ declare namespace shaka.lcevc {
     /**
      * Close LCEVC Decoder.
      */
-    release ( ) : any ;
+    release ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -1388,10 +1388,10 @@ declare namespace shaka.media {
     constructor (mimeType : string ) ;
     static findDecoder ( ) : ( shaka.extern.CaptionDecoderPlugin ) | null ;
     static findParser (mimeType : string ) : ( shaka.extern.CeaParserPlugin ) | null ;
-    static registerDecoder (plugin : shaka.extern.CaptionDecoderPlugin ) : any ;
-    static registerParser (mimeType : string , plugin : shaka.extern.CeaParserPlugin ) : any ;
-    static unregisterDecoder ( ) : any ;
-    static unregisterParser (mimeType : string ) : any ;
+    static registerDecoder (plugin : shaka.extern.CaptionDecoderPlugin ) : void ;
+    static registerParser (mimeType : string , plugin : shaka.extern.CeaParserPlugin ) : void ;
+    static unregisterDecoder ( ) : void ;
+    static unregisterParser (mimeType : string ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -1436,18 +1436,18 @@ declare namespace shaka.media {
      * @param extension The file extension of the manifest.
      * @param parserFactory The factory used to create parser instances.
      */
-    static registerParserByExtension (extension : string , parserFactory : shaka.extern.ManifestParser.Factory ) : any ;
+    static registerParserByExtension (extension : string , parserFactory : shaka.extern.ManifestParser.Factory ) : void ;
     /**
      * Registers a manifest parser by MIME type.
      * @param mimeType The MIME type of the manifest.
      * @param parserFactory The factory used to create parser instances.
      */
-    static registerParserByMime (mimeType : string , parserFactory : shaka.extern.ManifestParser.Factory ) : any ;
+    static registerParserByMime (mimeType : string , parserFactory : shaka.extern.ManifestParser.Factory ) : void ;
     /**
      * Unregisters a manifest parser by MIME type.
      * @param mimeType The MIME type of the manifest.
      */
-    static unregisterParserByMime (mimeType : string ) : any ;
+    static unregisterParserByMime (mimeType : string ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -1473,16 +1473,16 @@ declare namespace shaka.media {
     constructor ( ) ;
     //!! Symbol.iterator inserted by Clutz for Iterable subtype
     [Symbol.iterator]():  Iterator < shaka.media.SegmentReference | null > ;
-    evict (time : number ) : any ;
+    evict (time : number ) : void ;
     find (time : any ) : any ;
-    fit (windowStart : number , windowEnd : number | null , c ? : boolean ) : any ;
+    fit (windowStart : number , windowEnd : number | null , c ? : boolean ) : void ;
     forEachTopLevelReference (fn : any ) : any ;
     get (position : any ) : any ;
     merge (references : any ) : any ;
-    mergeAndEvict (references : shaka.media.SegmentReference [] , windowStart : number ) : any ;
-    offset (offset : number ) : any ;
-    release ( ) : any ;
-    updateEvery (interval : number , updateCallback : ( ) => ( shaka.media.SegmentReference | null ) [] | null ) : any ;
+    mergeAndEvict (references : shaka.media.SegmentReference [] , windowStart : number ) : void ;
+    offset (offset : number ) : void ;
+    release ( ) : void ;
+    updateEvery (interval : number , updateCallback : ( ) => ( shaka.media.SegmentReference | null ) [] | null ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -1578,7 +1578,7 @@ declare namespace shaka.media {
      * real-time, adjustments to presentationStartTime_ can cause availability
      * windows to jump around on updates.
      */
-    lockStartTime ( ) : any ;
+    lockStartTime ( ) : void ;
     /**
      * Gives PresentationTimeline a Stream's maximum segment duration so it can
      * size and position the segment availability window.  This function should be
@@ -1586,82 +1586,82 @@ declare namespace shaka.media {
      * called if notifySegments() is called instead for a particular stream.
      * @param maxSegmentDuration The maximum segment duration for a particular stream.
      */
-    notifyMaxSegmentDuration (maxSegmentDuration : number ) : any ;
+    notifyMaxSegmentDuration (maxSegmentDuration : number ) : void ;
     /**
      * Gives PresentationTimeline a Stream's minimum segment start time.
      */
-    notifyMinSegmentStartTime (startTime : number ) : any ;
+    notifyMinSegmentStartTime (startTime : number ) : void ;
     /**
      * Gives PresentationTimeline an startTime and endTime of the period.
      * This should be only set for Dash.
      */
-    notifyPeriodDuration (startTime : number , endTime : number ) : any ;
+    notifyPeriodDuration (startTime : number , endTime : number ) : void ;
     /**
      * Gives PresentationTimeline an array of segments so it can size and position
      * the segment availability window, and account for missing segment
      * information.  These segments do not necessarily need to all be from the
      * same stream.
      */
-    notifySegments (references : shaka.media.SegmentReference [] ) : any ;
+    notifySegments (references : shaka.media.SegmentReference [] ) : void ;
     /**
      * Gives PresentationTimeline a Stream's timeline so it can size and position
      * the segment availability window, and account for missing segment
      * information.
      */
-    notifyTimeRange (timeline : shaka.media.PresentationTimeline.TimeRange [] , startOffset : number ) : any ;
+    notifyTimeRange (timeline : shaka.media.PresentationTimeline.TimeRange [] , startOffset : number ) : void ;
     /**
      * Offsets the segment times by the given amount.
      * @param offset The number of seconds to offset by.  A positive number adjusts the segment times forward.
      */
-    offset (offset : number ) : any ;
+    offset (offset : number ) : void ;
     /**
      * Sets the presentation's segment availability time offset. This should be
      * only set for Low Latency Dash.
      * The segments are available earlier for download than the availability start
      * time, so we can move closer to the live edge.
      */
-    setAvailabilityTimeOffset (offset : number ) : any ;
+    setAvailabilityTimeOffset (offset : number ) : void ;
     /**
      * Sets the clock offset, which is the difference between the client's clock
      * and the server's clock, in milliseconds (i.e., serverTime = Date.now() +
      * clockOffset).
      * @param offset The clock offset, in ms.
      */
-    setClockOffset (offset : number ) : any ;
+    setClockOffset (offset : number ) : void ;
     /**
      * Sets the presentation delay in seconds.
      */
-    setDelay (delay : number ) : any ;
+    setDelay (delay : number ) : void ;
     /**
      * Sets the presentation's duration.
      * @param duration The presentation's duration in seconds. Infinity indicates that the presentation continues indefinitely.
      */
-    setDuration (duration : number ) : any ;
+    setDuration (duration : number ) : void ;
     /**
      * Sets the initial program date time.
      */
-    setInitialProgramDateTime (initialProgramDateTime : number ) : any ;
+    setInitialProgramDateTime (initialProgramDateTime : number ) : void ;
     /**
      * Sets the presentation's start time.
      * @param presentationStartTime The wall-clock time, in seconds, when the presentation started or will start. Only required for live.
      */
-    setPresentationStartTime (presentationStartTime : number ) : any ;
+    setPresentationStartTime (presentationStartTime : number ) : void ;
     /**
      * Sets the presentation's segment availability duration. The segment
      * availability duration should only be set for live.
      * @param segmentAvailabilityDuration The presentation's new segment availability duration in seconds.
      */
-    setSegmentAvailabilityDuration (segmentAvailabilityDuration : number ) : any ;
+    setSegmentAvailabilityDuration (segmentAvailabilityDuration : number ) : void ;
     /**
      * Sets the presentation's static flag.
      * @param isStatic If true, the presentation is static, meaning all segments are available at once.
      */
-    setStatic (isStatic : boolean ) : any ;
+    setStatic (isStatic : boolean ) : void ;
     /**
      * Sets the start time of the user-defined seek range.  This is only used for
      * VOD content.
      */
-    setUserSeekStart (time : number ) : any ;
+    setUserSeekStart (time : number ) : void ;
     /**
      * True if the presentation start time is being used to calculate the live
      * edge.
@@ -1674,7 +1674,7 @@ declare namespace shaka.media {
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
 declare namespace shaka.media.PresentationTimeline {
-  type TimeRange = { end : number , partialSegments : number , segmentPosition : number , start : number , unscaledStart : number } ;
+  type TimeRange = { end : number , partialSegments : number , segmentPosition : number , start : number , unscaledEnd : number , unscaledStart : number } ;
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
 declare namespace shaka.media {
@@ -1693,7 +1693,7 @@ declare namespace shaka.media {
      * Removes all SegmentReferences that end before the given time.
      * @param time The time in seconds.
      */
-    evict (time : number ) : any ;
+    evict (time : number ) : void ;
     find (time : any ) : any ;
     /**
      * Drops references that start after windowEnd, or end before windowStart,
@@ -1703,7 +1703,7 @@ declare namespace shaka.media {
      * duration is known and another period has been added.
      * @param isNew Whether this is a new SegmentIndex and we shouldn't update the number of evicted elements.
      */
-    fit (windowStart : number , windowEnd : number | null , isNew ? : boolean ) : any ;
+    fit (windowStart : number , windowEnd : number | null , isNew ? : boolean ) : void ;
     get (position : any ) : any ;
     /**
      * Returns a new iterator that initially points to the segment that contains
@@ -1725,7 +1725,7 @@ declare namespace shaka.media {
      * makes the destroy/release methods do nothing.
      * This is mainly for testing.
      */
-    markImmutable ( ) : any ;
+    markImmutable ( ) : void ;
     /**
      * Merges the given SegmentReferences and evicts the ones that end before the
      * given time.  Supports extending the original references only.
@@ -1736,19 +1736,19 @@ declare namespace shaka.media {
      * @param references The list of SegmentReferences, which must be sorted first by their start times (ascending) and second by their end times (ascending).
      * @param windowStart The start of the availability window to filter out the references that are no longer available.
      */
-    mergeAndEvict (references : shaka.media.SegmentReference [] , windowStart : number ) : any ;
+    mergeAndEvict (references : shaka.media.SegmentReference [] , windowStart : number ) : void ;
     /**
      * Offset all segment references by a fixed amount.
      * @param offset The amount to add to each segment's start and end times.
      */
-    offset (offset : number ) : any ;
-    release ( ) : any ;
+    offset (offset : number ) : void ;
+    release ( ) : void ;
     /**
      * Updates the references every so often.  Stops when the references list
      * returned by the callback is null.
      * @param interval The interval in seconds.
      */
-    updateEvery (interval : number , updateCallback : ( ) => ( shaka.media.SegmentReference | null ) [] | null ) : any ;
+    updateEvery (interval : number , updateCallback : ( ) => ( shaka.media.SegmentReference | null ) [] | null ) : void ;
     /**
      * Create a SegmentIndex for a single segment of the given start time and
      * duration at the given URIs.
@@ -1770,8 +1770,8 @@ declare namespace shaka.media {
     current ( ) : shaka.media.SegmentReference | null ;
     currentPosition ( ) : number ;
     next ( ) : IteratorResult < shaka.media.SegmentReference | null > ;
-    resetToLastIndependent ( ) : any ;
-    setReverse (reverse : boolean ) : any ;
+    resetToLastIndependent ( ) : void ;
+    setReverse (reverse : boolean ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -1856,45 +1856,45 @@ declare namespace shaka.media {
      * The "byterange optimization" means that it is playable using MP4 low
      * latency streaming with chunked data.
      */
-    markAsByterangeOptimization ( ) : any ;
+    markAsByterangeOptimization ( ) : void ;
     /**
      * Mark the reference as being the last part of the full segment
      */
-    markAsLastPartial ( ) : any ;
+    markAsLastPartial ( ) : void ;
     /**
      * Mark the reference as non-independent.
      */
-    markAsNonIndependent ( ) : any ;
+    markAsNonIndependent ( ) : void ;
     /**
      * Mark the reference as partial.
      */
-    markAsPartial ( ) : any ;
+    markAsPartial ( ) : void ;
     /**
      * Mark the reference as preload.
      */
-    markAsPreload ( ) : any ;
+    markAsPreload ( ) : void ;
     /**
      * Mark the reference as unavailable.
      */
-    markAsUnavailable ( ) : any ;
+    markAsUnavailable ( ) : void ;
     /**
      * Offset the segment reference by a fixed amount.
      * @param offset The amount to add to the segment's start and end times.
      */
-    offset (offset : number ) : any ;
+    offset (offset : number ) : void ;
     /**
      * Set the segment data.
      */
-    setSegmentData (segmentData : ArrayBuffer | ArrayBufferView , singleUse ? : boolean ) : any ;
+    setSegmentData (segmentData : ArrayBuffer | ArrayBufferView , singleUse ? : boolean ) : void ;
     /**
      * Set the segment's thumbnail sprite.
      */
-    setThumbnailSprite (thumbnailSprite : shaka.media.SegmentReference.ThumbnailSprite ) : any ;
+    setThumbnailSprite (thumbnailSprite : shaka.media.SegmentReference.ThumbnailSprite ) : void ;
     /**
      * Sync this segment against a particular sync time that will serve as "0" in
      * the presentation timeline.
      */
-    syncAgainst (lowestSyncTime : number ) : any ;
+    syncAgainst (lowestSyncTime : number ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -1962,27 +1962,27 @@ declare namespace shaka.net {
     /**
      * Clears all request filters.
      */
-    clearAllRequestFilters ( ) : any ;
+    clearAllRequestFilters ( ) : void ;
     /**
      * Clears all response filters.
      */
-    clearAllResponseFilters ( ) : any ;
+    clearAllResponseFilters ( ) : void ;
     /**
      * Clears Common Access Token map.
      */
-    clearCommonAccessTokenMap ( ) : any ;
-    configure (config : shaka.extern.NetworkingConfiguration ) : any ;
+    clearCommonAccessTokenMap ( ) : void ;
+    configure (config : shaka.extern.NetworkingConfiguration ) : void ;
     destroy ( ) : Promise < any > ;
     /**
      * Registers a new request filter.  All filters are applied in the order they
      * are registered.
      */
-    registerRequestFilter (filter : shaka.extern.RequestFilter ) : any ;
+    registerRequestFilter (filter : shaka.extern.RequestFilter ) : void ;
     /**
      * Registers a new response filter.  All filters are applied in the order they
      * are registered.
      */
-    registerResponseFilter (filter : shaka.extern.ResponseFilter ) : any ;
+    registerResponseFilter (filter : shaka.extern.ResponseFilter ) : void ;
     /**
      * Makes a network request and returns the resulting data.
      */
@@ -1990,11 +1990,11 @@ declare namespace shaka.net {
     /**
      * Removes a request filter.
      */
-    unregisterRequestFilter (filter : shaka.extern.RequestFilter ) : any ;
+    unregisterRequestFilter (filter : shaka.extern.RequestFilter ) : void ;
     /**
      * Removes a response filter.
      */
-    unregisterResponseFilter (filter : shaka.extern.ResponseFilter ) : any ;
+    unregisterResponseFilter (filter : shaka.extern.ResponseFilter ) : void ;
     /**
      * Gets a copy of the default retry parameters.
      */
@@ -2010,11 +2010,11 @@ declare namespace shaka.net {
      * If no priority is provided, this defaults to the highest priority of
      * APPLICATION.
      */
-    static registerScheme (scheme : string , plugin : shaka.extern.SchemePlugin , priority ? : number , progressSupport ? : boolean ) : any ;
+    static registerScheme (scheme : string , plugin : shaka.extern.SchemePlugin , priority ? : number , progressSupport ? : boolean ) : void ;
     /**
      * Removes a scheme plugin.
      */
-    static unregisterScheme (scheme : string ) : any ;
+    static unregisterScheme (scheme : string ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2151,12 +2151,12 @@ declare namespace shaka {
     /**
      * Install all polyfills.
      */
-    static installAll ( ) : any ;
+    static installAll ( ) : void ;
     /**
      * Registers a new polyfill to be installed.
      * @param priority An optional number priority.  Higher priorities will be executed before lower priority ones.  Default is 0.
      */
-    static register (polyfill : ( ) => any , priority ? : number ) : any ;
+    static register (polyfill : ( ) => any , priority ? : number ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2175,7 +2175,7 @@ declare namespace shaka.polyfill {
      * encryptionScheme upfront.  The support check will happen on-demand the
      * first time EME is used.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2194,7 +2194,7 @@ declare namespace shaka.polyfill {
      * encryptionScheme upfront.  The support check will happen on-demand the
      * first time MC is used.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2204,7 +2204,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
     /**
      * A copy of the MediaCapabilities instance, to prevent Safari from
      * garbage-collecting the polyfilled method on it. We make it public and export
@@ -2220,7 +2220,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2231,11 +2231,11 @@ declare namespace shaka.polyfill {
      * Installs the polyfill if needed.
      * @param enableUninstall enables uninstalling the polyfill
      */
-    static install (enableUninstall ? : boolean ) : any ;
+    static install (enableUninstall ? : boolean ) : void ;
     /**
      * Uninstalls the polyfill if needed and enabled.
      */
-    static uninstall ( ) : any ;
+    static uninstall ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2245,7 +2245,7 @@ declare namespace shaka.polyfill {
     /**
      * Installs the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2255,7 +2255,7 @@ declare namespace shaka.polyfill {
     /**
      * Installs the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2265,7 +2265,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2275,7 +2275,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2285,7 +2285,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2295,7 +2295,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2305,7 +2305,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2315,7 +2315,7 @@ declare namespace shaka.polyfill {
     /**
      * Install the polyfill if needed.
      */
-    static install ( ) : any ;
+    static install ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2523,7 +2523,7 @@ declare namespace shaka.text {
      * modifies original payload and creates nested cues to better represent
      * styling found in payload. All changes are done in-place.
      */
-    static parseCuePayload (cue : shaka.text.Cue , styles ? : Map < string , shaka.text.Cue > ) : any ;
+    static parseCuePayload (cue : shaka.text.Cue , styles ? : Map < string , shaka.text.Cue > ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -2871,8 +2871,8 @@ declare namespace shaka.text {
     constructor (displayer : shaka.extern.TextDisplayer | null ) ;
     destroy ( ) : Promise < any > ;
     static findParser (mimeType : any ) : ( shaka.extern.TextParserPlugin ) | null ;
-    static registerParser (mimeType : string , plugin : shaka.extern.TextParserPlugin ) : any ;
-    static unregisterParser (mimeType : string ) : any ;
+    static registerParser (mimeType : string , plugin : shaka.extern.TextParserPlugin ) : void ;
+    static unregisterParser (mimeType : string ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3005,8 +3005,8 @@ declare namespace shaka.transmuxer {
     private noStructuralTyping_shaka_transmuxer_TransmuxerEngine : any;
     destroy ( ) : Promise < any > ;
     static findTransmuxer (mimeType : string , contentType ? : string ) : ( shaka.extern.TransmuxerPlugin ) | null ;
-    static registerTransmuxer (mimeType : string , plugin : shaka.extern.TransmuxerPlugin , priority : number ) : any ;
-    static unregisterTransmuxer (mimeType : string , priority : number ) : any ;
+    static registerTransmuxer (mimeType : string , plugin : shaka.extern.TransmuxerPlugin , priority : number ) : void ;
+    static unregisterTransmuxer (mimeType : string , priority : number ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3214,17 +3214,17 @@ declare namespace shaka.util {
      * Rewinds the specified number of bytes.
      * @param bytes The number of bytes to rewind.
      */
-    rewind (bytes : number ) : any ;
+    rewind (bytes : number ) : void ;
     /**
      * Seeks to a specified position.
      * @param position The desired byte position within the DataView.
      */
-    seek (position : number ) : any ;
+    seek (position : number ) : void ;
     /**
      * Skips the specified number of bytes.
      * @param bytes The number of bytes to skip.
      */
-    skip (bytes : number ) : any ;
+    skip (bytes : number ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3252,7 +3252,7 @@ declare namespace shaka.util {
     /**
      * Remove all of the child nodes of an element.
      */
-    static removeAllChildren (element : Element ) : any ;
+    static removeAllChildren (element : Element ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3455,7 +3455,7 @@ declare namespace shaka.util {
      * @param listener The event listener.
      * @param options An object that specifies characteristics about the event listener. The passive option, if true, indicates that this function will never call preventDefault(), which improves scrolling performance.
      */
-    listen (target : EventTarget | null , type : string , listener : shaka.util.EventManager.ListenerType , options ? : boolean | AddEventListenerOptions ) : any ;
+    listen (target : EventTarget | null , type : string , listener : shaka.util.EventManager.ListenerType , options ? : boolean | AddEventListenerOptions ) : void ;
     /**
      * Attaches an event listener to an event target.  The listener will be
      * removed when the first instance of the event is fired.
@@ -3464,22 +3464,22 @@ declare namespace shaka.util {
      * @param listener The event listener.
      * @param options An object that specifies characteristics about the event listener. The passive option, if true, indicates that this function will never call preventDefault(), which improves scrolling performance.
      */
-    listenOnce (target : EventTarget | null , type : string , listener : shaka.util.EventManager.ListenerType , options ? : boolean | AddEventListenerOptions ) : any ;
+    listenOnce (target : EventTarget | null , type : string , listener : shaka.util.EventManager.ListenerType , options ? : boolean | AddEventListenerOptions ) : void ;
     /**
      * Detaches all event listeners.
      */
-    release ( ) : any ;
+    release ( ) : void ;
     /**
      * Detaches all event listeners from all targets.
      */
-    removeAll ( ) : any ;
+    removeAll ( ) : void ;
     /**
      * Detaches an event listener from an event target.
      * @param target The event target.
      * @param type The event type.
      * @param listener The event listener.
      */
-    unlisten (target : EventTarget | null , type : string , listener ? : shaka.util.EventManager.ListenerType ) : any ;
+    unlisten (target : EventTarget | null , type : string , listener ? : shaka.util.EventManager.ListenerType ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3527,8 +3527,8 @@ declare namespace shaka.util {
      * the object fires.
      * @param listener The callback or listener object to invoke.
      */
-    listenToAllEvents (listener : EventListener | null | ( (a : Event ) => any ) ) : any ;
-    release ( ) : any ;
+    listenToAllEvents (listener : EventListener | null | ( (a : Event ) => any ) ) : void ;
+    release ( ) : void ;
     /**
      * Remove an event listener from this object.
      * @param type The event type for which you wish to remove a listener.
@@ -3570,7 +3570,7 @@ declare namespace shaka.util {
     /**
      * Request that this object release all internal references.
      */
-    release ( ) : any ;
+    release ( ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3738,19 +3738,19 @@ declare namespace shaka.util {
      * @param partialOkay If true, allow reading partial payloads from some boxes. If the goal is a child box, we can sometimes find it without enough data to find all child boxes.
      * @param stopOnPartial If true, stop reading if an incomplete box is detected.
      */
-    parse (data : ArrayBuffer | ArrayBufferView , partialOkay ? : boolean , stopOnPartial ? : boolean ) : any ;
+    parse (data : ArrayBuffer | ArrayBufferView , partialOkay ? : boolean , stopOnPartial ? : boolean ) : void ;
     /**
      * Parse the next box on the current level.
      * @param absStart The absolute start position in the original byte array.
      * @param partialOkay If true, allow reading partial payloads from some boxes. If the goal is a child box, we can sometimes find it without enough data to find all child boxes.
      * @param stopOnPartial If true, stop reading if an incomplete box is detected.
      */
-    parseNext (absStart : number , reader : shaka.util.DataViewReader , partialOkay ? : boolean , stopOnPartial ? : boolean ) : any ;
+    parseNext (absStart : number , reader : shaka.util.DataViewReader , partialOkay ? : boolean , stopOnPartial ? : boolean ) : void ;
     /**
      * Stop parsing.  Useful for extracting information from partial segments and
      * avoiding an out-of-bounds error once you find what you are looking for.
      */
-    stop ( ) : any ;
+    stop ( ) : void ;
     /**
      * Create a callback that tells the Mp4 parser to treat the body of a box as a
      * binary blob and to parse the body's contents using the provided callback.
@@ -3763,12 +3763,12 @@ declare namespace shaka.util {
      * describing the audio codec parameters, followed by an arbitrary number of
      * appended children.  Each child is a box.
      */
-    static audioSampleEntry (box : shaka.extern.ParsedBox ) : any ;
+    static audioSampleEntry (box : shaka.extern.ParsedBox ) : void ;
     /**
      * A callback that tells the Mp4 parser to treat the body of a box as a series
      * of boxes. The number of boxes is limited by the size of the parent box.
      */
-    static children (box : shaka.extern.ParsedBox ) : any ;
+    static children (box : shaka.extern.ParsedBox ) : void ;
     /**
      * Find the header size of the box.
      * Useful for modifying boxes in place or finding the exact offset of a field.
@@ -3780,7 +3780,7 @@ declare namespace shaka.util {
      * number of children is represented by a 4 byte unsigned integer. Each child
      * is a box.
      */
-    static sampleDescription (box : shaka.extern.ParsedBox ) : any ;
+    static sampleDescription (box : shaka.extern.ParsedBox ) : void ;
     /**
      * Convert an integer type from a box into an ascii string name.
      * Useful for debugging.
@@ -3793,7 +3793,7 @@ declare namespace shaka.util {
      * describing the video codec parameters, followed by an arbitrary number of
      * appended children.  Each child is a box.
      */
-    static visualSampleEntry (box : shaka.extern.ParsedBox ) : any ;
+    static visualSampleEntry (box : shaka.extern.ParsedBox ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3836,12 +3836,12 @@ declare namespace shaka.util {
     /**
      * Deletes a stream from matchedStreams because it is no longer needed
      */
-    deleteStream (stream : shaka.extern.Stream | null , periodId : string ) : any ;
+    deleteStream (stream : shaka.extern.Stream | null , periodId : string ) : void ;
     getImageStreams ( ) : shaka.extern.Stream [] ;
     getTextStreams ( ) : shaka.extern.Stream [] ;
     getVariants ( ) : shaka.extern.Variant [] ;
-    release ( ) : any ;
-    setUseStreamOnce (useOnce : boolean ) : any ;
+    release ( ) : void ;
+    setUseStreamOnce (useOnce : boolean ) : void ;
   }
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/dist/shaka-player.play.debug.externs.js
@@ -3887,7 +3887,7 @@ declare namespace shaka.util {
      * Resets the fromCharCode method's implementation.
      * For debug use.
      */
-    static resetFromCharCode ( ) : any ;
+    static resetFromCharCode ( ) : void ;
     /**
      * Creates a ArrayBuffer from the given string, converting to UTF-16 encoding.
      */
@@ -3911,7 +3911,7 @@ declare namespace shaka.util {
      * Stop the timer and clear the previous behaviour. The timer is still usable
      * after calling |stop|.
      */
-    stop ( ) : any ;
+    stop ( ) : void ;
     /**
      * Have the timer call |onTick| after |seconds| has elapsed unless |stop| is
      * called first.
@@ -3934,7 +3934,7 @@ declare namespace shaka.util {
     /**
      * Clear previous data
      */
-    clearData ( ) : any ;
+    clearData ( ) : void ;
     /**
      * Return the audio data
      */
@@ -3986,7 +3986,7 @@ declare namespace shaka.util {
     /**
      * Set the current discontinuity sequence number.
      */
-    setDiscontinuitySequence (discontinuitySequence : number ) : any ;
+    setDiscontinuitySequence (discontinuitySequence : number ) : void ;
     static Timescale : number ;
     /**
      * Check if the passed data corresponds to an MPEG2-TS
@@ -4415,7 +4415,7 @@ declare namespace shaka.extern {
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/externs/shaka/drm_info.js
 declare namespace shaka.extern {
-  type DrmInfo = { audioRobustness : string , distinctiveIdentifierRequired : boolean , encryptionScheme : string , initData : shaka.extern.InitDataOverride [] | null , keyIds : Set < string > | null , keySystem : string , keySystemUris ? : Set < string > | null , licenseServerUri : string , persistentStateRequired : boolean , serverCertificate : Uint8Array | null , serverCertificateUri : string , sessionType : string , videoRobustness : string } ;
+  type DrmInfo = { audioRobustness : string , distinctiveIdentifierRequired : boolean , encryptionScheme : string , initData : shaka.extern.InitDataOverride [] | null , keyIds : Set < string > | null , keySystem : string , keySystemUris ? : Set < string > | null , licenseServerUri : string , mediaTypes ? : string [] , persistentStateRequired : boolean , serverCertificate : Uint8Array | null , serverCertificateUri : string , sessionType : string , videoRobustness : string } ;
 }
 // Generated from /Users/harukitakechi/Documents/work/streamco/shaka-player/externs/shaka/drm_info.js
 declare namespace shaka.extern {
