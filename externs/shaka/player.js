@@ -2251,6 +2251,7 @@ shaka.extern.NetworkingConfiguration;
  *    A callback called for each cue after it is parsed, but right before it
  *    is appended to the presentation.
  *    Gives a chance for client-side editing of cue text, cue timing, etc.
+ *    This works for MSE always and for src= only when you use UITextDisplayer.
  * @property {boolean} dispatchAllEmsgBoxes
  *   If true, all emsg boxes are parsed and dispatched.
  *   <br>
@@ -2449,7 +2450,7 @@ shaka.extern.AdsConfiguration;
  *   If true, we remove the latency from first packet time. This time is
  *   used to calculate the real bandwidth.
  *   <br>
- *   Defaults to <code>true</code>.
+ *   Defaults to <code>false</code>.
  * @exportDoc
  */
 shaka.extern.AbrConfiguration;
